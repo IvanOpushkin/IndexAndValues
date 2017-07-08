@@ -16,6 +16,10 @@ import java.nio.file.Paths;
 public class IndexGenerator  {
 
 
+    //OLOLOLOLLOOLO
+    //LOLOLOLOLO
+    //LKFFFFFFFFFFFFFFFFFF
+
     //аналогия заполнения аргс, примитивная
 
     private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
