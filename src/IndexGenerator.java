@@ -79,7 +79,13 @@ public class IndexGenerator  {
         //заполнение значениями (экранировать ковычки)
 
         while (true) {
-            finalSQLScriptFile.append("(" + reader.readLine() + ",\"" + reader.readLine() + "\",\"" + reader.readLine() + "\")," + '\r' + '\n');
+
+            System.out.println("Введите пожалуйста индекс секси кусочка(писеса Eng)");
+            finalSQLScriptFile.append("(" + reader.readLine());
+            System.out.println("Введите пожалуйста группу секси кусочка(писеса Eng)");
+            finalSQLScriptFile.append(",\"" + reader.readLine() + "\",\"");
+            System.out.println("Введите пожалуйста секси кусочек(писеса Eng)");
+            finalSQLScriptFile.append( reader.readLine() + "\")," + '\r' + '\n');
 
             System.out.println("Будете ли вводить ещё данные? Если нет введите End");
 
@@ -89,11 +95,11 @@ public class IndexGenerator  {
         }
 
         //переспрашивать всё ли правильно или ввести заного ФУНКЦИЯ
+        //переспрашивать всё ли правильно или ввести заного ФУНКЦИЯ
+        //переспрашивать всё ли правильно или ввести заного ФУНКЦИЯ
+        //переспрашивать всё ли правильно или ввести заного ФУНКЦИЯ
 
-
-        finalSQLScriptFile.append("(344,\"последняя строка\",\"последняя строка\");"+'\r'+'\n');
-
-        //StringBuilder имеет в себе очень много полезных функций, mutable
+        //StringBuilder имеет в себе очень много полезных функций, mutable - изменчивый
 
         System.out.println(finalSQLScriptFile);
 
