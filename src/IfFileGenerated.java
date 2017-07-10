@@ -8,6 +8,8 @@ import java.io.*;
 
 1.Прочесть файл в стринг билдер
 2.Запись шаблоном 1 строки из второго файла
+
+Что доделать - это начальное открытие файла доработать заменив точка с запятой на запятую
     */
 
 public class IfFileGenerated {
@@ -40,9 +42,21 @@ public class IfFileGenerated {
         StringBuilder finalSQLScriptFile = new StringBuilder();
 
        int a;
+       // Проверка на нулевое изменение списка, тк есть подгон файла можно убрать
+       //int checker = 0;
 
         while ( (a = reader.read()) != -1)
             finalSQLScriptFile.append((char)a);
+
+
+        System.out.println(finalSQLScriptFile);
+
+        //Подгон файла на добавление записей
+
+        finalSQLScriptFile.deleteCharAt(finalSQLScriptFile.length() - 1);
+        finalSQLScriptFile.append("," + '\r' + "\n");
+
+        System.out.println(finalSQLScriptFile);
 
 
 
@@ -56,6 +70,9 @@ public class IfFileGenerated {
 
             while (true) {
 
+
+                StringBuilder addition = new StringBuilder();
+
                 System.out.println("Будете ли вводить ещё данные? Если нет введите End");
 
                 String b = reader2.readLine();
@@ -63,11 +80,26 @@ public class IfFileGenerated {
                 if (b.equals("End")) break;
 
                 System.out.println("Введите пожалуйста индекс секси кусочка(писеса Eng)");
-                finalSQLScriptFile.append("(" + reader2.readLine());
+                addition.append("(" + reader2.readLine());
+                //finalSQLScriptFile.append("(" + reader2.readLine());
                 System.out.println("Введите пожалуйста группу секси кусочка(писеса Eng)");
-                finalSQLScriptFile.append(",\"" + reader2.readLine() + "\",\"");
+                addition.append(",\"" + reader2.readLine() + "\",\"");
+                //finalSQLScriptFile.append(",\"" + reader2.readLine() + "\",\"");
                 System.out.println("Введите пожалуйста секси кусочек(писеса Eng)");
-                finalSQLScriptFile.append( reader2.readLine() + "\")," + '\r' + '\n');
+                addition.append( reader2.readLine() + "\")," + '\r' + '\n');
+                //finalSQLScriptFile.append( reader2.readLine() + "\")," + '\r' + '\n');
+
+                System.out.println("Проверьте введённые данные пожалуйста, сохранить их? Yes/No");
+                System.out.println(addition.toString());
+
+                //checker++;
+
+                String answer = reader2.readLine();
+
+                if (answer.equals("Yes"))
+                    finalSQLScriptFile.append(addition);
+
+
 
             }
 
@@ -75,7 +107,11 @@ public class IfFileGenerated {
             //Доработать с последним индексом чек на запятую замену на точка запятую
             String finol = finalSQLScriptFile.toString();
             System.out.println(finol);
+
+            //Проверка на нулевое изменение списка, тк есть подгон файла можно убрать
+            //if (checker > 0)
             finol=""+finol.substring(0,finol.length()-3) + ";";
+
             System.out.println(finol);
 
             writer.write(finol);
