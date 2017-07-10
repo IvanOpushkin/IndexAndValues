@@ -42,6 +42,7 @@ public class IfFileGenerated {
         StringBuilder finalSQLScriptFile = new StringBuilder();
 
        int a;
+
        // Проверка на нулевое изменение списка, тк есть подгон файла можно убрать
        //int checker = 0;
 
@@ -49,14 +50,13 @@ public class IfFileGenerated {
             finalSQLScriptFile.append((char)a);
 
 
-        System.out.println(finalSQLScriptFile);
 
         //Подгон файла на добавление записей
 
         finalSQLScriptFile.deleteCharAt(finalSQLScriptFile.length() - 1);
         finalSQLScriptFile.append("," + '\r' + "\n");
 
-        System.out.println(finalSQLScriptFile);
+
 
 
 
@@ -92,7 +92,6 @@ public class IfFileGenerated {
                 System.out.println("Проверьте введённые данные пожалуйста, сохранить их? Yes/No");
                 System.out.println(addition.toString());
 
-                //checker++;
 
                 String answer = reader2.readLine();
 
@@ -104,12 +103,9 @@ public class IfFileGenerated {
             }
 
 
-            //Доработать с последним индексом чек на запятую замену на точка запятую
+
             String finol = finalSQLScriptFile.toString();
             System.out.println(finol);
-
-            //Проверка на нулевое изменение списка, тк есть подгон файла можно убрать
-            //if (checker > 0)
             finol=""+finol.substring(0,finol.length()-3) + ";";
 
             System.out.println(finol);
@@ -121,12 +117,6 @@ public class IfFileGenerated {
             reader.close();
             reader2.close();
         }
-
-       // System.out.println(finalSQLScriptFile.toString());
-
-
-
-
 
     }
 
