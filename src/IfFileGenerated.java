@@ -24,6 +24,11 @@ public class IfFileGenerated {
     //статик блок не объявляет переменных, он просто инициализирует какойто код.
     //А также переменные
     //try with resources не работает тут
+    //подделать параграфно и брно
+    //доделать функцию список типов элементов, как хз, возможно регуляркой на между двумя запятыми.
+    //есть ли ещё между двумя запятыми после слова VALUES ?
+
+    //Чтобы инфа не терялась автоматом создавать копию в самом начале запуска программы
 
     static {
 
@@ -52,6 +57,13 @@ public class IfFileGenerated {
             finalSQLScriptFile.append((char)a);
 
 
+        //Дорабкак вывести только то что после VALUES
+
+        String currentPoint = finalSQLScriptFile.substring(finalSQLScriptFile.indexOf("VALUES"),
+                finalSQLScriptFile.length());
+        System.out.println("ТЕКУЩЕЕ СОСТОЯНИЕ");
+        System.out.println();
+        System.out.println(currentPoint);
 
         //Подгон файла на добавление записей
 
@@ -91,14 +103,20 @@ public class IfFileGenerated {
                 addition.append( reader2.readLine() + "\")," + '\r' + '\n');
                 //finalSQLScriptFile.append( reader2.readLine() + "\")," + '\r' + '\n');
 
+                System.out.println();
+                System.out.println("ВНИМАНИЕ ПОДТВЕРЖДЕНИЕ ВВОДА ДАННЫХ");
                 System.out.println("Проверьте введённые данные пожалуйста, сохранить их? Yes/No");
                 System.out.println(addition.toString());
 
 
                 String answer = reader2.readLine();
 
-                if (answer.equals("Yes"))
+                if (answer.equals("Yes")) {
+                    System.out.println();
                     finalSQLScriptFile.append(addition);
+                    System.out.println("Строка = " + addition);
+                    System.out.println("Успешно сохранена");
+                }
 
 
 
