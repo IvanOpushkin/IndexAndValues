@@ -17,6 +17,7 @@ import java.io.*;
 public class IfFileGenerated {
 
     private static String FILE_NAME = "C:\\Users\\Mega\\Music\\По 5тке руке\\JAVA Developer\\20 02 2017\\Тестовый Solution.sql";
+    private static String FILE_NAME2 = "C:\\Users\\Mega\\Music\\По 5тке руке\\JAVA Developer\\20 02 2017\\Тестовый Solution - copy.sql";
     private static FileReader reader = null;
     private static BufferedReader reader2 = null;
 
@@ -65,6 +66,14 @@ public class IfFileGenerated {
         System.out.println();
         System.out.println(currentPoint);
 
+
+
+        //Копия файла сэйв на крит
+        FileWriter copy = new FileWriter(FILE_NAME2);
+        copy.write(finalSQLScriptFile.toString());
+        copy.close();
+
+
         //Подгон файла на добавление записей
 
         finalSQLScriptFile.deleteCharAt(finalSQLScriptFile.length() - 1);
@@ -77,7 +86,6 @@ public class IfFileGenerated {
 
         try(FileWriter writer = new FileWriter(FILE_NAME))
         {
-
             //**А зачем нам записывать в файл, то что уже существует.
             //Можно ведь записать просто новые строки, возможно нужен RandomAccessFile с
             //точки, тк так файл стирается.
